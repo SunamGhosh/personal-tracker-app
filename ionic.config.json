@@ -1,0 +1,7 @@
+{
+  "name": "Personal tracker app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
