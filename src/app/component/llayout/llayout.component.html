@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <!-- Side Menu -->
+    <ion-menu side="start" menuId="main-menu" contentId="main-content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>📱 Personal Tracker</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/home" routerDirection="root">💰 Finance Tracker</ion-item>
+            <ion-item routerLink="/task" routerDirection="root">✅ Daily Tasks</ion-item>
+            <ion-item routerLink="/health" routerDirection="root">🏃‍♂️ Health Tracker</ion-item>
+            <ion-item routerLink="/mood-journal" routerDirection="root">😊 Mood & Journal</ion-item>
+           
+            <ion-item routerLink="/goals" routerDirection="root">🎯 Goal Tracker</ion-item>
+     
+            <ion-item routerLink="/reminders" routerDirection="root">⏰ Reminders</ion-item>
+            <ion-item routerLink="/data-backup" routerDirection="root">☁️ Data & Backup</ion-item>
+            <ion-item routerLink="/settings" routerDirection="root">⚙️ Settings</ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <!-- Main Content -->
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -10,4 +10,24 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'add-transaction',
+    loadComponent: () => import('./add-transaction/add-transaction.page').then( m => m.AddTransactionPage)
+  },
+  {
+    path: 'task',
+    loadComponent: () => import('./task/task.page').then( m => m.TaskPage)
+  },
+  {
+    path: 'health',
+    loadComponent: () => import('./health/health.page').then( m => m.HealthPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'finance',
+    loadComponent: () => import('./finance/finance.page').then( m => m.FinancePage)
+  },
 ];

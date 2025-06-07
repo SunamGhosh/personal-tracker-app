@@ -1,27 +1,100 @@
-#container {
+/* Gradient header background */
+.header-gradient {
+  --background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #fff;
+  font-weight: 600;
+  font-size: 22px;
+  box-shadow: 0 4px 10px rgba(24, 40, 72, 0.4);
+}
+
+/* Content background for subtle contrast */
+.content-bg {
+  background: #f5f7fa;
+  min-height: 100%;
+}
+
+/* Dashboard title styling */
+.dashboard-title {
   text-align: center;
+  margin-bottom: 2rem;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #182848;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 16px;
+    color: #555;
+    letter-spacing: 0.05em;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* Card base styles */
+.dashboard-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  ion-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 0.5rem;
+
+    ion-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #182848;
+      margin: 0;
+    }
+
+    ion-card-subtitle {
+      font-size: 14px;
+      color: #777;
+      margin-top: 4px;
+    }
+  }
+
+  ion-card-content {
+    font-size: 15px;
+    color: #444;
+    padding-top: 0.5rem;
+    line-height: 1.4;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* Icon styling */
+.card-icon {
+  color: #4b6cb7;
+  min-width: 36px;
+  min-height: 36px;
+  opacity: 0.85;
 }
 
-#container a {
-  text-decoration: none;
+.finance-icon {
+  color: #2dd36f;
+}
+
+.task-icon {
+  color: #3880ff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .dashboard-title h2 {
+    font-size: 24px;
+  }
+  .dashboard-card ion-card-header ion-card-title {
+    font-size: 18px;
+  }
 }

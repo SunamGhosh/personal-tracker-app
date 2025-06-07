@@ -1,0 +1,153 @@
+<ion-header translucent>
+ 
+  <ion-toolbar color="primary" class="toolbar-center">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>📊 Daily Tracker Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding dashboard-content">
+
+  <ion-grid>
+
+    <!-- FIRST ROW: Tasks + Chart -->
+    <ion-row class="dashboard-row">
+
+      <ion-col size="12" size-md="6">
+        <ion-card class="glass-card shadow-card">
+          <ion-card-header>
+            <ion-card-title>📅 Today's Tasks</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form (ngSubmit)="addTask()" #taskForm="ngForm" class="task-form">
+              <ion-item class="task-input-item" lines="none">
+                <ion-input
+                  placeholder="Enter a task"
+                  [(ngModel)]="newTask"
+                  name="newTask"
+                  required
+                  clearInput
+                ></ion-input>
+                <ion-button
+                  type="submit"
+                  fill="solid"
+                  slot="end"
+                  color="tertiary"
+                  [disabled]="!newTask"
+                  shape="round"
+                >
+                  Add
+                  <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </form>
+
+            <ion-list *ngIf="tasks.length > 0; else noTasks" class="tasks-list">
+  <ion-item-sliding *ngFor="let task of tasks" class="task-item">
+    <ion-item lines="full">
+      <ion-icon
+        [name]="task.done ? 'checkmark-circle' : 'ellipse-outline'"
+        slot="start"
+        [color]="task.done ? 'success' : 'medium'"
+        class="task-icon"
+      ></ion-icon>
+
+      <!-- Editable Task Title -->
+      <ion-input
+        [(ngModel)]="task.title"
+        [readonly]="task.done"
+        class="task-label"
+      ></ion-input>
+
+      <ion-checkbox
+        slot="end"
+        [(ngModel)]="task.done"
+        (ionChange)="updateTask(task)"
+        color="tertiary"
+      ></ion-checkbox>
+    </ion-item>
+
+    <!-- Slide options: Update and Delete -->
+    <ion-item-options side="end">
+      <ion-item-option color="primary" (click)="updateTask(task)">
+        <ion-icon name="create" slot="icon-only"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="danger" (click)="deleteTask(task)">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+            <ng-template #noTasks>
+              <ion-text color="medium" class="ion-text-center no-tasks-text">
+                <p>No tasks added yet.</p>
+              </ion-text>
+            </ng-template>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="6">
+        <ion-card class="glass-card shadow-card">
+          <ion-card-header>
+            <ion-card-title>📈 Progress Overview</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="chart-container">
+            <canvas id="pieChart"></canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+    <!-- SECOND ROW: Appointments + Stats -->
+    <ion-row class="dashboard-row">
+
+      <ion-col size="12" size-md="6">
+        <ion-card class="glass-card shadow-card">
+          <ion-card-header>
+            <ion-card-title>📅 Appointments</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item lines="none">
+                <ion-label>Meeting with John</ion-label>
+                <ion-badge slot="end" color="tertiary">3 PM</ion-badge>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Project Review</ion-label>
+                <ion-badge slot="end" color="secondary">6 PM</ion-badge>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" size-md="6">
+        <ion-card class="glass-card shadow-card">
+          <ion-card-header>
+            <ion-card-title>📌 Quick Stats</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="stats-chip-container">
+            <ion-chip color="success" outline>
+              <ion-label>Done: {{ getDoneCount() }}</ion-label>
+            </ion-chip>
+            <ion-chip color="warning" outline>
+              <ion-label>Pending: {{ getPendingCount() }}</ion-label>
+            </ion-chip>
+            <ion-chip color="medium" outline>
+              <ion-label>Total: {{ getTotalCount() }}</ion-label>
+            </ion-chip>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

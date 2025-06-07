@@ -1,0 +1,157 @@
+<ion-header translucent>
+  <ion-toolbar color="primary" class="ion-text-center">
+      <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">💰 Finance Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <!-- 💳 Summary Cards -->
+  <ion-grid>
+    <ion-row class="ion-justify-content-around ion-align-items-stretch">
+
+      <ion-col size="12" size-md="4">
+        <ion-card class="summary-card glass-effect balance-card">
+          <ion-card-header>
+            <ion-card-subtitle class="text-muted">Total Balance</ion-card-subtitle>
+            <ion-card-title class="highlight">₹{{ income - expense | number }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" size-md="4">
+        <ion-card class="summary-card glass-effect income-card">
+          <ion-card-header>
+            <ion-card-subtitle>Income</ion-card-subtitle>
+            <ion-card-title>₹{{ income | number }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" size-md="4">
+        <ion-card class="summary-card glass-effect expense-card">
+          <ion-card-header>
+            <ion-card-subtitle>Expense</ion-card-subtitle>
+            <ion-card-title>₹{{ expense | number }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- 📊 Chart Card -->
+  <ion-card class="chart-card small-chart-card glass-effect">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center chart-title">
+        <ion-icon name="bar-chart-outline" color="tertiary" class="chart-icon"></ion-icon>
+        Income vs Expense
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-text-center">
+      <canvas id="financeChart"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- ➕ Add Transaction Button -->
+  <div class="ion-padding-vertical ion-text-center">
+    <ion-button expand="block" (click)="showAddModal = true" color="tertiary" shape="round" size="large" class="add-btn">
+      <ion-icon name="add-circle" slot="start"></ion-icon>
+      Add Transaction
+    </ion-button>
+  </div>
+
+  <!-- 📋 Recent Transactions -->
+  <ion-card class="glass-effect recent-transactions">
+    <ion-card-header>
+      <ion-card-title class="transactions-title">📋 Recent Transactions</ion-card-title>
+    </ion-card-header>
+
+    <ion-item-sliding *ngFor="let t of transactions">
+      <ion-item lines="full">
+        <ion-icon
+          [name]="t.type === 'income' ? 'arrow-down-circle' : 'arrow-up-circle'"
+          [color]="t.type === 'income' ? 'success' : 'danger'"
+          slot="start"
+          class="transaction-icon"
+        ></ion-icon>
+
+        <ion-label>
+          <h3>{{ t.category }} <span class="amount">₹{{ t.amount | number }}</span></h3>
+          <p class="date-note">{{ t.date | date:'mediumDate' }} • {{ t.note || 'No note' }}</p>
+        </ion-label>
+
+        <ion-buttons slot="end" class="action-buttons">
+          <ion-button color="warning" (click)="edit(t)" size="small" fill="outline" class="edit-btn">
+            <ion-icon name="create-outline" slot="start"></ion-icon>
+            Edit
+          </ion-button>
+          <ion-button color="danger" (click)="delete(t.id)" size="small" fill="outline" class="delete-btn">
+            <ion-icon name="trash-outline" slot="start"></ion-icon>
+            Delete
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <!-- Swipe actions -->
+      <ion-item-options side="end">
+        <ion-item-option color="warning" (click)="edit(t)">Edit</ion-item-option>
+        <ion-item-option color="danger" (click)="delete(t.id)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+    <ng-template #noData>
+      <ion-card-content class="ion-text-center no-data">
+        <ion-icon name="wallet-outline" size="large" color="medium"></ion-icon>
+        <p>No transactions found. Add your first one!</p>
+      </ion-card-content>
+    </ng-template>
+  </ion-card>
+
+</ion-content>
+<!-- ✨ Modal: Add/Edit Transaction -->
+<ion-modal [isOpen]="showAddModal" (didDismiss)="showAddModal = false">
+  <ng-template>
+    <ion-header translucent>
+      <ion-toolbar color="primary">
+        <ion-title>{{ transaction.id ? 'Edit' : 'Add' }} Transaction</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="showAddModal = false">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <form (submit)="save()">
+        <ion-item>
+          <ion-label position="floating">Type</ion-label>
+          <ion-select [(ngModel)]="transaction.type" name="type" required>
+            <ion-select-option value="income">Income</ion-select-option>
+            <ion-select-option value="expense">Expense</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Category</ion-label>
+          <ion-input [(ngModel)]="transaction.category" name="category" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Amount</ion-label>
+          <ion-input [(ngModel)]="transaction.amount" name="amount" type="number" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Note</ion-label>
+          <ion-input [(ngModel)]="transaction.note" name="note"></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" type="submit" class="ion-margin-top" color="success">
+          {{ transaction.id ? 'Update' : 'Save' }}
+        </ion-button>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>

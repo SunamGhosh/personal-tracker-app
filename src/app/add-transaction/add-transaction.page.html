@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Transaction</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (submit)="save()">
+    <ion-item>
+      <ion-label position="floating">Type</ion-label>
+      <ion-select [(ngModel)]="transaction.type" name="type" required>
+        <ion-select-option value="income">Income</ion-select-option>
+        <ion-select-option value="expense">Expense</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Category</ion-label>
+      <ion-input [(ngModel)]="transaction.category" name="category" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Amount</ion-label>
+      <ion-input [(ngModel)]="transaction.amount" name="amount" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Note</ion-label>
+      <ion-input [(ngModel)]="transaction.note" name="note"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" class="ion-margin-top">Save</ion-button>
+  </form>
+</ion-content>
