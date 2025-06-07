@@ -1,11 +1,26 @@
 <ion-header>
-  <ion-toolbar class="header-gradient">
-    <ion-title class="ion-text-center welcome-title">👋 Welcome Back, {{ username }}!</ion-title>
+  <ion-toolbar color="warning" style="margin-bottom: -30px;">
+    <ion-title class="ion-text-center welcome-title">
+      Welcome {{ username }}!
+    </ion-title>
+    <ion-buttons slot="end" style="margin-right: 100px;">
+      <ion-button color="danger" (click)="logout()" >
+        
+        <ion-icon name="log-out-outline" slot="icon-only">
+        </ion-icon>
+         
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding content-bg">
 
+<ion-content class="ion-padding content-bg">
+  <div  style="
+    background: url('../../assets/Personal.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;">
+    
   <div class="dashboard-title">
     <h2>{{ username }}! Dashboard</h2>
     <p>Select a section to get started</p>
@@ -46,4 +61,7 @@
 
     </ion-row>
   </ion-grid>
+
+  </div>
+
 </ion-content>

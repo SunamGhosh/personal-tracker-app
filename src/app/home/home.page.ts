@@ -29,4 +29,9 @@ export class HomePage {
    goTo(path: string) {
     this.router.navigate(['/' + path]);
   }
+
+  logout() {
+    localStorage.removeItem('username');
+    this.router.navigate(['/login']);
+  }
 }

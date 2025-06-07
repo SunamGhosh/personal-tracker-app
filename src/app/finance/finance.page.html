@@ -1,16 +1,19 @@
 <ion-header translucent>
-  <ion-toolbar color="primary" class="ion-text-center">
+  <ion-toolbar color="warning" class="ion-text-center" style="margin-bottom: -30px;">
       <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title class="header-title">💰 Finance Dashboard</ion-title>
+    <ion-title class="header-title"> Finance Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding" color="light">
-
+<div style="
+    background: url('../../assets/Personal.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;">
   <!-- 💳 Summary Cards -->
-  <ion-grid>
+  <ion-grid >
     <ion-row class="ion-justify-content-around ion-align-items-stretch">
 
       <ion-col size="12" size-md="4">
@@ -109,7 +112,7 @@
       </ion-card-content>
     </ng-template>
   </ion-card>
-
+</div>
 </ion-content>
 <!-- ✨ Modal: Add/Edit Transaction -->
 <ion-modal [isOpen]="showAddModal" (didDismiss)="showAddModal = false">

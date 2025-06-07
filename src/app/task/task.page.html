@@ -1,6 +1,6 @@
 <ion-header translucent>
  
-  <ion-toolbar color="primary" class="toolbar-center">
+  <ion-toolbar color="warning" class="toolbar-center" style="margin-bottom: -30px;">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -9,8 +9,11 @@
 </ion-header>
 
 <ion-content fullscreen class="ion-padding dashboard-content">
-
-  <ion-grid>
+<div style="
+    background: url('../../assets/Personal.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;">
+   <ion-grid>
 
     <!-- FIRST ROW: Tasks + Chart -->
     <ion-row class="dashboard-row">
@@ -111,7 +114,7 @@
       <ion-col size="12" size-md="6">
         <ion-card class="glass-card shadow-card">
           <ion-card-header>
-            <ion-card-title>📅 Appointments</ion-card-title>
+            <ion-card-title> Appointments</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-list>
@@ -129,9 +132,9 @@
       </ion-col>
 
       <ion-col size="12" size-md="6">
-        <ion-card class="glass-card shadow-card">
+        <ion-card class="glass-card shadow-card" style="background-color: white;">
           <ion-card-header>
-            <ion-card-title>📌 Quick Stats</ion-card-title>
+            <ion-card-title>Quick Stats</ion-card-title>
           </ion-card-header>
           <ion-card-content class="stats-chip-container">
             <ion-chip color="success" outline>
@@ -150,4 +153,6 @@
     </ion-row>
 
   </ion-grid>
-</ion-content>
+
+</div>
+ </ion-content>
