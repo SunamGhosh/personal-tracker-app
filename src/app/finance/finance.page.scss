@@ -1,0 +1,185 @@
+/* Typography */
+.header-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+}
+
+.transactions-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--ion-color-primary);
+}
+
+/* Summary Cards */
+.summary-card {
+  border-radius: 20px;
+  margin: 14px 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.summary-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: saturate(180%) blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Card colors */
+.balance-card {
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  color: #074f7a;
+}
+
+.income-card {
+  background: linear-gradient(135deg, #b2fab4, #81e6d9);
+  color: #0a5740;
+}
+
+.expense-card {
+  background: linear-gradient(135deg, #ffb3b3, #ff6969);
+  color: #7a0909;
+}
+
+/* Highlight numbers */
+.highlight {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: inherit;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+}
+
+/* Chart card */
+.small-chart-card {
+  max-width: 480px;
+  margin: 0 auto 30px;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+/* Chart title icon */
+.chart-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--ion-color-tertiary);
+}
+.chart-icon {
+  font-size: 1.6rem;
+}
+
+/* Add button */
+.add-btn {
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+.add-btn:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Recent Transactions Card */
+.recent-transactions {
+  border-radius: 18px;
+  margin-top: 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+}
+
+/* Transaction Item */
+ion-item[lines="full"] {
+  --border-color: #e0e0e0;
+  border-radius: 12px;
+  margin: 6px 14px;
+  background: #fafafa;
+  transition: background-color 0.3s ease;
+}
+
+ion-item[lines="full"]:hover {
+  background: #f0f7ff;
+}
+
+/* Transaction Icon */
+.transaction-icon {
+  font-size: 1.8rem;
+}
+
+/* Amount styling */
+.amount {
+  font-weight: 700;
+  color: var(--ion-color-dark);
+  margin-left: 8px;
+  font-size: 1.1rem;
+}
+
+/* Date and note styling */
+.date-note {
+  color: var(--ion-color-medium);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* Action buttons */
+.action-buttons ion-button {
+  margin-left: 6px;
+  --border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --min-width: 80px;
+  --height: 36px;
+}
+
+.action-buttons ion-button ion-icon {
+  font-size: 1.2rem;
+  margin-right: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .highlight {
+    font-size: 1.7rem;
+  }
+  ion-card-title {
+    font-size: 1.1rem;
+  }
+  .add-btn {
+    font-size: 1rem;
+  }
+  .action-buttons ion-button {
+    --min-width: 70px;
+    font-size: 0.85rem;
+  }
+}
+ion-buttons ion-button {
+  border-radius: 8px;
+  padding: 6px 10px;
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+ion-buttons ion-button ion-icon {
+  color: inherit; /* Ensure the icon inherits the button's color */
+}ion-button[color="warning"] {
+  --background: #d67f00 !important;
+  --color: #fff !important;
+}
+
+ion-button[color="danger"] {
+  --background: #b00000 !important;
+  --color: #fff !important;
+}
+
+
+

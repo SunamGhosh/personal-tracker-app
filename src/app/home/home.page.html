@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="header-gradient">
+    <ion-title class="ion-text-center welcome-title">👋 Welcome Back, {{ username }}!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding content-bg">
+
+  <div class="dashboard-title">
+    <h2>{{ username }}! Dashboard</h2>
+    <p>Select a section to get started</p>
+  </div>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+
+      <!-- Finance Card -->
+      <ion-col size="12" size-md="5">
+        <ion-card button (click)="goTo('finance')" class="dashboard-card finance-card">
+          <img src="../../assets/wallet.jpg" alt="" style="height: 160px;width: 60%;padding-left: 200px;">
+          <ion-card-header>
+            <ion-icon name="wallet-outline" size="large" class="card-icon finance-icon"></ion-icon>
+            <ion-card-title>Finance Dashboard</ion-card-title>
+            <ion-card-subtitle>Manage income & expenses</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Visualize your budget and transactions clearly.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Daily Task Card -->
+      <ion-col size="12" size-md="5">
+        <ion-card button (click)="goTo('task')" class="dashboard-card task-card">
+          <img src="../../assets/note.jpg" alt=""  style="height: 160px;width: 60%;padding-left: 200px;">
+          <ion-card-header>
+            <ion-icon name="clipboard-outline" size="large" class="card-icon task-icon"></ion-icon>
+            <ion-card-title>Daily Task</ion-card-title>
+            <ion-card-subtitle>Track your productivity</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Stay focused by managing your to-do list easily.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
