@@ -1,13 +1,13 @@
 <ion-header translucent>
-  <ion-toolbar class="login-toolbar">
-    <ion-title class="login-title">Login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center login-title">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="ion-padding">
-  <div class="login-background">
+<ion-content fullscreen class="login-content">
+  <div class="login-bg">
     <ion-card class="login-card">
-      <ion-card-header class="ion-text-center login-card-header">
+      <ion-card-header class="ion-text-center">
         <h2>{{ isLogin ? 'Sign In' : 'Sign Up' }}</h2>
         <p>
           {{ isLogin ? 'Enter your credentials to access your account' : 'Fill the form to create a new account' }}
@@ -15,31 +15,31 @@
       </ion-card-header>
 
       <ion-card-content>
-        <div *ngIf="!isLogin" class="input-group">
-          <ion-item lines="full" class="input-item">
-            <ion-icon name="person-circle-outline" slot="start" class="input-icon"></ion-icon>
+        <div *ngIf="!isLogin">
+          <ion-item lines="full">
+            <ion-icon name="person-circle-outline" slot="start"></ion-icon>
             <ion-label position="floating">Full Name</ion-label>
             <ion-input [(ngModel)]="name" type="text" required></ion-input>
           </ion-item>
         </div>
 
-        <ion-item lines="full" class="input-item">
-          <ion-icon name="mail-outline" slot="start" class="input-icon"></ion-icon>
+        <ion-item lines="full">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
           <ion-label position="floating">Email or Username</ion-label>
-          <ion-input [(ngModel)]="username" type="text" required autocomplete="username"></ion-input>
+          <ion-input [(ngModel)]="username" type="text" required></ion-input>
         </ion-item>
 
-        <ion-item lines="full" class="input-item">
-          <ion-icon name="lock-closed-outline" slot="start" class="input-icon"></ion-icon>
+        <ion-item lines="full">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
           <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="password" type="password" required [autocomplete]="isLogin ? 'current-password' : 'new-password'"></ion-input>
+          <ion-input [(ngModel)]="password" type="password" required></ion-input>
         </ion-item>
 
         <ion-button expand="block" class="login-button" (click)="isLogin ? login() : register()">
           {{ isLogin ? 'Log In' : 'Register' }}
         </ion-button>
 
-        <ion-button expand="block" fill="clear" color="medium" class="toggle-button" (click)="toggleForm()">
+        <ion-button expand="block" fill="clear" color="medium" (click)="toggleForm()">
           {{ isLogin ? "Don't have an account? Sign Up" : "Already have an account? Log In" }}
         </ion-button>
       </ion-card-content>
