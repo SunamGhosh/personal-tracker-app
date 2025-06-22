@@ -1,48 +1,59 @@
 <ion-header translucent>
-  <ion-toolbar color="primary">
-    <ion-title class="ion-text-center login-title">Login</ion-title>
+  <ion-toolbar color="warning"  style="--background: linear-gradient(45deg, #4e54c8, #8f94fb);margin-bottom: -30px;">
+    <ion-title class="ion-text-center" style="font-weight: 700; font-size: 1.8rem; letter-spacing: 1.2px;">
+   Login
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="login-content">
-  <div class="login-bg">
-    <ion-card class="login-card">
-      <ion-card-header class="ion-text-center">
-        <h2>{{ isLogin ? 'Sign In' : 'Sign Up' }}</h2>
-        <p>
-          {{ isLogin ? 'Enter your credentials to access your account' : 'Fill the form to create a new account' }}
-        </p>
-      </ion-card-header>
+<ion-content fullscreen
+  class="ion-padding ion-align-items-center ion-justify-content-center"
+  >
+<div   style="
+    background: url('/assets/Personal.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;">
+  
+  <ion-card style="max-width: 420px; width: 90%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.12); padding: 2rem;margin-left: 700px;">
+    <ion-card-header class="ion-text-center" style="margin-bottom: 1rem;">
+      <h2 style="font-weight: 800; color: #4e54c8; margin-bottom: 0.3rem;">{{ isLogin ? 'Sign In' : 'Sign Up' }}</h2>
+      <p style="color: #6c6f85; font-weight: 500;">
+        {{ isLogin ? 'Enter your credentials to access your account' : 'Fill the form to create a new account' }}
+      </p>
+    </ion-card-header>
 
-      <ion-card-content>
-        <div *ngIf="!isLogin">
-          <ion-item lines="full">
-            <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-            <ion-label position="floating">Full Name</ion-label>
-            <ion-input [(ngModel)]="name" type="text" required></ion-input>
-          </ion-item>
-        </div>
-
-        <ion-item lines="full">
-          <ion-icon name="mail-outline" slot="start"></ion-icon>
-          <ion-label position="floating">Email or Username</ion-label>
-          <ion-input [(ngModel)]="username" type="text" required></ion-input>
+    <ion-card-content>
+      <!-- Name only on register -->
+      <div *ngIf="!isLogin" style="margin-bottom: 20px;">
+        <ion-item lines="full" style="border-radius: 10px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
+          <ion-icon name="person-circle-outline" slot="start" style="color: #4e54c8;"></ion-icon>
+          <ion-label position="floating" style="font-weight: 600; color: #4e54c8;">Full Name</ion-label>
+          <ion-input [(ngModel)]="name" type="text" required></ion-input>
         </ion-item>
+      </div>
 
-        <ion-item lines="full">
-          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="password" type="password" required></ion-input>
-        </ion-item>
+      <ion-item lines="full" style="border-radius: 10px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 20px;">
+        <ion-icon name="mail-outline" slot="start" style="color: #4e54c8;"></ion-icon>
+        <ion-label position="floating" style="font-weight: 600; color: #4e54c8;">Email or Username</ion-label>
+        <ion-input [(ngModel)]="username" type="text" required autocomplete="username"></ion-input>
+      </ion-item>
 
-        <ion-button expand="block" class="login-button" (click)="isLogin ? login() : register()">
-          {{ isLogin ? 'Log In' : 'Register' }}
-        </ion-button>
+      <ion-item lines="full" style="border-radius: 10px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 30px;">
+        <ion-icon name="lock-closed-outline" slot="start" style="color: #4e54c8;"></ion-icon>
+        <ion-label position="floating" style="font-weight: 600; color: #4e54c8;">Password</ion-label>
+        <ion-input [(ngModel)]="password" type="password" required autocomplete="{{ isLogin ? 'current-password' : 'new-password' }}"></ion-input>
+      </ion-item>
 
-        <ion-button expand="block" fill="clear" color="medium" (click)="toggleForm()">
-          {{ isLogin ? "Don't have an account? Sign Up" : "Already have an account? Log In" }}
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div>
+      <ion-button expand="block" style="border-radius: 30px; font-weight: 700; font-size: 1.1rem; background: linear-gradient(45deg, #4e54c8, #8f94fb);" (click)="isLogin ? login() : register()" 
+        ripple-effect>
+        {{ isLogin ? 'Log In' : 'Register' }}
+      </ion-button>
+
+      <ion-button expand="block" fill="clear" color="medium" style="margin-top: 15px; font-weight: 600;" (click)="toggleForm()">
+        {{ isLogin ? "Don't have an account? Sign Up" : "Already have an account? Log In" }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+
 </ion-content>
