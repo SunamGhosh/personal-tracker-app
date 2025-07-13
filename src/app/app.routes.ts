@@ -29,5 +29,9 @@ export const routes: Routes = [
   {
     path: 'finance',
     loadComponent: () => import('./finance/finance.page').then( m => m.FinancePage)
+  },  {
+    path: 'homepage',
+    loadComponent: () => import('./homepage/homepage.page').then( m => m.HomepagePage)
   },
+
 ];

@@ -1,0 +1,200 @@
+<ion-header>
+  <ion-toolbar class="custom-navbar">
+    <!-- Left: Logo or Home Button -->
+    <ion-buttons slot="start">
+      <ion-button routerLink="/homepage" class="logo-button">
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        <span>Home</span>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Center: Title -->
+    <ion-title class="navbar-title">
+      <ion-icon name="pulse-outline" style="margin-right: 8px;"></ion-icon>
+      Personal Tracker
+    </ion-title>
+
+    <!-- Right: Navigation Links -->
+    <ion-buttons slot="end" class="nav-links">
+      <ion-button routerLink="/about">
+        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+        About Us
+      </ion-button>
+
+      <ion-button routerLink="/login">
+        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+        Sign In
+      </ion-button>
+
+      <ion-button routerLink="/signup">
+        <ion-icon name="person-add-outline" slot="start"></ion-icon>
+        Sign Up
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w3-light-grey ion-padding w3-animate-opacity">
+
+  <!-- Banner Title -->
+ 
+
+  <!-- Banner Image Section -->
+ <!-- Banner Image with Overlay Title -->
+<div class="banner-image-container w3-animate-top">
+  <img src="../../assets/banner.jpg" alt="Tracker Banner" class="banner-image" />
+  <div class="banner-title-overlay">
+    <h1 class="banner-title-text">Personal Tracker App</h1>
+  </div>
+</div>
+
+  <!-- Rest of your content below this... -->
+
+
+  <!-- Hero Banner -->
+
+  <!-- Animated Container -->
+  <div class="w3-row w3-animate-left" style="position: relative; margin-top: -100px; margin-bottom: 100px;">
+    <div class="w3-col l1"><br></div>
+
+    <div class="w3-col l10">
+      <div class="w3-padding-large w3-card w3-white w3-round-large">
+        <ion-grid style="background-image: url(../../assets/1.jpg);">
+          <ion-row>
+            <!-- Left: Text Content -->
+            <ion-col size="12" sizeMd="6" class="w3-padding" style="color: white;">
+              <h1 class="w3-center w3-text-blue"><b><u>What is Personal Tracker App</u></b></h1>
+              <p class="mt-5 w3-medium">
+                <b>A Personal Tracker App </b>is a comprehensive digital assistant designed to empower individuals in managing their daily routines, personal goals, habits, tasks, and overall productivity. 
+                <br><br>
+               By centralizing self-improvement tools in one intuitive interface, it helps users stay organized, motivated, and accountable.
+
+
+              </p>
+            </ion-col>
+
+            <!-- Right: Image -->
+            <ion-col size="12" sizeMd="6" class="w3-padding" >
+              <img
+                src="../../assets/new.jpg"
+                width="50%"
+                height="300px"
+                style="border-radius: 50px; margin-left: 100px;"
+                alt="Coding Illustration"
+              />
+            </ion-col>
+          </ion-row>
+
+          <!-- Learn Button -->
+       
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+  
+<h1 style="text-align: center;">Our Facilities</h1>
+  <ion-grid style="background-color: yellow;">
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+
+      <!-- Finance Card -->
+      <ion-col size="12" size-md="5">
+        <ion-card button (click)="goTo('login')" class="dashboard-card finance-card">
+          <img src="../../assets/wallet.jpg" alt="" style="height: 160px;width: 60%;padding-left: 200px;">
+          <ion-card-header>
+            <ion-icon name="wallet-outline" size="large" class="card-icon finance-icon"></ion-icon>
+            <ion-card-title>Finance Dashboard</ion-card-title>
+            <ion-card-subtitle>Manage income & expenses</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Visualize your budget and transactions clearly.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Daily Task Card -->
+      <ion-col size="12" size-md="5">
+        <ion-card button (click)="goTo('login')" class="dashboard-card task-card">
+          <img src="../../assets/note.jpg" alt=""  style="height: 160px;width: 60%;padding-left: 200px;">
+          <ion-card-header>
+            <ion-icon name="clipboard-outline" size="large" class="card-icon task-icon"></ion-icon>
+            <ion-card-title>Daily Task</ion-card-title>
+            <ion-card-subtitle>Track your productivity</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Stay focused by managing your to-do list easily.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  
+<section class="features-section">
+  <h2 class="features-title">Features that bring in Productivity Enhancement</h2>
+
+  <div class="features-grid">
+    <div class="feature-card" *ngFor="let feature of features">
+      <div class="icon-circle">
+        <ion-icon [name]="feature.icon"></ion-icon>
+      </div>
+      <div class="feature-text">{{ feature.label }}</div>
+    </div>
+  </div>
+
+</section>
+
+
+
+  <!-- Footer (Optional) -->
+  <div class="w3-center w3-text-gray w3-small w3-margin-top">
+    <p>© 2025 Personal Tracker. All rights reserved.</p>
+  </div>
+
+  
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <ion-grid>
+      <ion-row class="ion-align-items-center ion-justify-content-between">
+
+        <!-- Left: Logo & Info -->
+        <ion-col size="12" size-md="4" class="footer-left">
+          <h3 style="color: white;">Personal Tracker</h3>
+          <p class="footer-description" style="color: white;">Helping you organize, plan, and succeed—every day.</p>
+        </ion-col>
+
+        <!-- Middle: Quick Links -->
+        <ion-col size="12" size-md="4" class="footer-links">
+          <h5 style="color: white;">Quick Links</h5>
+          <ul style="color: white;">
+            <li><a routerLink="/homepage" style="color: white;" >Home</a></li>
+            <li><a routerLink="/about" style="color: white;">About Us</a></li>
+            <li><a routerLink="/login" style="color: white;">Login</a></li>
+            <li><a routerLink="/signup" style="color: white;">Sign Up</a></li>
+          </ul>
+        </ion-col>
+
+        <!-- Right: Social Media Icons -->
+        <ion-col size="12" size-md="4" class="footer-social">
+          <h5 style="color: white;">Follow Us</h5>
+          <div class="social-icons" style="color: white;">
+            <ion-icon name="logo-facebook" style="color: white;"></ion-icon>
+            <ion-icon name="logo-twitter" style="color: white;"></ion-icon>
+            <ion-icon name="logo-instagram" style="color: white;"></ion-icon>
+            <ion-icon name="logo-linkedin" style="color: white;"></ion-icon>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+    <!-- Bottom Line -->
+    <div class="footer-bottom w3-center">
+      <p style="color: white;">© 2025 Personal Tracker. All rights reserved.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+
+</ion-content>

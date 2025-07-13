@@ -32,6 +32,6 @@ export class HomePage {
 
   logout() {
     localStorage.removeItem('username');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/homepage']);
   }
 }

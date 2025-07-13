@@ -12,6 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
+
+  ngOnInit(): void {
+      this.username = localStorage.getItem('username') || 'User';
+  }
   // Common form fields
   username = '';
   password = '';
@@ -60,5 +64,16 @@ export class LoginPage {
     } else {
       alert('Please fill all registration fields');
     }
+  }
+
+  
+
+   goTo(path: string) {
+    this.router.navigate(['/' + path]);
+  }
+
+  logout() {
+    localStorage.removeItem('username');
+    this.router.navigate(['/login']);
   }
 }

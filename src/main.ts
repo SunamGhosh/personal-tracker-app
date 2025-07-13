@@ -8,11 +8,12 @@ import { LlayoutComponent } from './app/component/llayout/llayout.component';
 import { HomePage } from './app/home/home.page';
 import { TaskPage } from './app/task/task.page';
 import { FinancePage } from './app/finance/finance.page';
+import { HomepagePage } from './app/homepage/homepage.page';
 
 const routes: Routes =[
 {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'homepage',
     pathMatch: 'full',
   },
   {
@@ -23,7 +24,10 @@ const routes: Routes =[
   
        { path: 'home', component: HomePage },
        { path: 'task', component: TaskPage },
-       { path: 'finance', component: FinancePage}
+       { path: 'finance', component: FinancePage},
+
+       { path: 'homepage', component: HomepagePage}
+
 
 
 
