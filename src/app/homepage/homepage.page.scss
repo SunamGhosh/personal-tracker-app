@@ -405,4 +405,10 @@ ion-icon {
   .w3-third {
     width: 100% !important;
   }
+}.typewriter-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+  min-height: 40px; // prevents layout shift
 }
