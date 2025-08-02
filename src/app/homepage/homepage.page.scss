@@ -1,26 +1,4 @@
-/* --------------------------------
-   Colors & Theme Variables
----------------------------------*/
-:root {
-  --ion-color-primary: #4fc3f7;
-  --ion-color-primary-rgb: 79, 195, 247;
-  --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #42b2db;
-  --ion-color-primary-tint: #62c9f8;
-}
 
-/* --------------------------------
-   Layout / Backgrounds
----------------------------------*/
-ion-content {
-  --background: #f5f6fa;
-}
-
-.content-bg {
-  background: #f5f7fa;
-  min-height: 100%;
-}
 
 .hero-section {
   background: linear-gradient(145deg, #ffffff, #f0f0f0);
@@ -102,27 +80,6 @@ ion-toolbar ion-icon {
   color: #2c3e50;
 }
 
-/* --------------------------------
-   Dashboard Cards
----------------------------------*/
-.dashboard-card {
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 1rem;
-}
-
-.dashboard-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-}
-
-.dashboard-card h4 {
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 10px;
-}
 
 .card-icon {
   color: #4b6cb7;
@@ -166,20 +123,6 @@ ion-card-content {
   line-height: 1.4;
 }
 
-/* --------------------------------
-   Dashboard Title
----------------------------------*/
-.dashboard-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.dashboard-title h2 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #182848;
-  margin-bottom: 0.2rem;
-}
 
 /* --------------------------------
    Features Section (Scroll Cards)
@@ -270,18 +213,6 @@ ion-card-content {
   color: #333;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .feature-card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-
-/* --------------------------------
-   Footer
----------------------------------*/
 .custom-footer {
   background: linear-gradient(135deg, black);
   color:  white;
@@ -302,29 +233,6 @@ ion-card-content {
   color: #555;
 }
 
-.footer-links h5,
-.footer-social h5 {
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #2c3e50;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links li {
-  margin: 5px 0;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
 
 .footer-links a:hover {
   color: #1a237e;
