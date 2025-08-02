@@ -18,10 +18,7 @@ export const routes: Routes = [
     path: 'task',
     loadComponent: () => import('./task/task.page').then( m => m.TaskPage)
   },
-  {
-    path: 'health',
-    loadComponent: () => import('./health/health.page').then( m => m.HealthPage)
-  },
+ 
   {
     path: 'login',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
@@ -29,7 +26,8 @@ export const routes: Routes = [
   {
     path: 'finance',
     loadComponent: () => import('./finance/finance.page').then( m => m.FinancePage)
-  },  {
+  },
+  {
     path: 'homepage',
     loadComponent: () => import('./homepage/homepage.page').then( m => m.HomepagePage)
   },
